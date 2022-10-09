@@ -1,1 +1,1 @@
-# Python scripts/exercises - Practicing fundamentals and concepts I`ve been studying so far.
+# Scripts/exercícios em Python - Praticando fundamentos e conceitos que venho estudando até o momento.
