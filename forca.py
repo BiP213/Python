@@ -1,30 +1,48 @@
+import random
+
+
 def jogar():
     print("*********************************")
     print("***Bem-vindo ao jogo da Forca!***")
     print("*********************************")
 
-    palavra_secreta = "banana".upper()
-    palavra_tamanho = len(palavra_secreta)
-    # array, lista com as letras acertadas pelo usuário.
+    arquivo = open("palavras.txt", "r")
+    # abre o arquivo na variável no modo "r" leitura
+    palavras = []
+    # inicializa uma lista vazia
+
+    for linha in arquivo:
+        linha = linha.strip()
+        # remove os \n das palavras
+        palavras.append(linha)
+        # adiciona as linhas na lista
+
+    arquivo.close()
+    # fecha o arquivo contendo as palavras
+
+    numero = random.randrange(0, len(palavras))
+    # gera um número aleatório entre determinado intervalo
+
+    palavra_secreta = palavras[numero].upper()
+    # pega o index da palavra na lista e transforma a palavra para maiúsculo
+
     letras_acertadas = ["_" for letra in palavra_secreta]
+    # array, lista com as letras acertadas pelo usuário
     # cria uma lista e
     # adiciona dinamicamente de acordo com o tamanho da palavra
     # Funcionalidade List Comprehensions
 
     erros = 0
 
-    print("Total de letras da palavra secreta: {}".format(palavra_tamanho))
-    print(letras_acertadas)
-
     while (True):
         chute = input("Qual letra? ")
-        # trata a string removendo espaços do input do usuário.
+        # trata a string removendo espaços do input do usuário
         # upper() transforma o input para maiúsculo
         chute = chute.strip().upper()
 
         if (chute in palavra_secreta):
             index = 0
-            # devolve a posição da letra encontrada na palavra secreta.
+            # devolve a posição da letra encontrada na palavra secreta
             for letra in palavra_secreta:
                 if (chute == letra):
                     letras_acertadas[index] = letra
