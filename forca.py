@@ -1,4 +1,5 @@
 import random
+import jogos
 
 
 def jogar():
@@ -35,15 +36,17 @@ def jogar():
 
     if ("_" not in letras_acertadas):
         imprime_mensagem_vitoria()
+        menu()
 
     else:
         imprime_mensagem_derrota(palavra_secreta)
+        menu()
 
 
 def mensagem_boas_vindas():
     print("*********************************")
     print("***Bem-vindo ao jogo da Forca!***")
-    print("*********************************")
+    print("*********************************\n")
 
 
 def carrega_palavra_secreta():
@@ -74,7 +77,7 @@ def inicializa_letras_acertadas(palavra):
 
 
 def pede_chute():
-    chute = input("Qual letra? ")
+    chute = input("Digite uma letra: ")
     # trata a string removendo espaços do input do usuário
     # upper() transforma o input para maiúsculo
     chute = chute.strip().upper()
@@ -101,7 +104,7 @@ def imprime_mensagem_vitoria():
     print("         '::. .'        ")
     print("           ) (          ")
     print("         _.' '._        ")
-    print("        '-------'       ")
+    print("        '-------'       \n")
 
 
 def imprime_mensagem_derrota(palavra_secreta):
@@ -122,7 +125,7 @@ def imprime_mensagem_derrota(palavra_secreta):
     print("   |  I I I I I I  |        ")
     print("   \_             _/       ")
     print("     \_         _/         ")
-    print("       \_______/           ")
+    print("       \_______/           \n")
 
 
 def desenha_forca(erros):
@@ -176,6 +179,28 @@ def desenha_forca(erros):
     print()
 
 
-# verifica se o arquivo foi chamado diretamente, se sim, executa a função jogar()
+def menu():
+    print("(1) Novo jogo (2) Menu de jogos (3) Fechar")
+    n = int(input("Opção: "))
+
+    if (n == 1):
+        print()
+        jogar()
+
+    elif (n == 2):
+        print()
+        jogos.escolhe_jogo()
+
+    elif (n == 3):
+        print()
+        print("Finalizando...")
+
+    else:
+        print()
+        print("Opção inválida! Digite novamente.\n")
+        menu()
+
+
+# verifica se o arquivo foi chamado diretamente, se sim, executa a função
 if (__name__ == "__main__"):
     jogar()

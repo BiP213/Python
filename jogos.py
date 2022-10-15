@@ -8,21 +8,21 @@ import adivinhacao
 def escolhe_jogo():
     print("*********************************")
     print("*******Escolha o seu jogo!*******")
-    print("*********************************")
+    print("*********************************\n")
 
     print("(1) Forca (2) Adivinhação")
 
-    jogo = int(input("Qual jogo: "))
+    jogo = int(input("Digite o número do jogo: "))
 
     if (jogo == 1):
-        print("Jogando forca")
+        print("Iniciando: Forca...\n")
         forca.jogar()  # chama a função jogar() do módulo forca importado.
     elif (jogo == 2):
-        print("Jogando adivinhação")
+        print("Iniciando: Adivinhação...\n")
         adivinhacao.jogar(
         )  # chama a função jogar() do módulo adivinhacao importado.
 
 
-# verifica se o arquivo foi chamado diretamente, se sim, executa a função escolhe_jogo()
+# verifica se o arquivo foi chamado diretamente, se sim, executa a função
 if (__name__ == "__main__"):
     escolhe_jogo()
